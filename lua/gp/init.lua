@@ -25,16 +25,16 @@ local deprecated = {
 
 local _H = {}
 local M = {
-    _H = _H,                      -- helper functions
-    _Name = "Gp",                 -- plugin name
-    _handles = {},                -- handles for running processes
-    _queries = {},                -- table of latest queries
-    _state = {},                  -- table of state variables
-    agents = {},                  -- table of agents
-    image_agents = {},            -- table of image agents
-    cmd = {},                     -- default command functions
-    config = {},                  -- config variables
-    hooks = {},                   -- user defined command functions
+    _H = _H,                         -- helper functions
+    _Name = "Gp",                    -- plugin name
+    _handles = {},                   -- handles for running processes
+    _queries = {},                   -- table of latest queries
+    _state = {},                     -- table of state variables
+    agents = {},                     -- table of agents
+    image_agents = {},               -- table of image agents
+    cmd = {},                        -- default command functions
+    config = {},                     -- config variables
+    hooks = {},                      -- user defined command functions
     spinner = require("gp.spinner"), -- spinner module
 }
 
@@ -908,9 +908,9 @@ end
 
 M.Target = {
     rewrite = 0, -- for replacing the selection, range or the current line
-    append = 1, -- for appending after the selection, range or the current line
+    append = 1,  -- for appending after the selection, range or the current line
     prepend = 2, -- for prepending before the selection, range or the current line
-    popup = 3, -- for writing into the popup window
+    popup = 3,   -- for writing into the popup window
 
     -- for writing into a new buffer
     ---@param filetype nil | string # nil = same as the original buffer
@@ -1300,8 +1300,8 @@ M._toggle = {}
 
 M._toggle_kind = {
     unknown = 0, -- unknown toggle
-    chat = 1, -- chat toggle
-    popup = 2, -- popup toggle
+    chat = 1,    -- chat toggle
+    popup = 2,   -- popup toggle
     context = 3, -- context toggle
 }
 
@@ -1486,10 +1486,10 @@ end
 
 M.BufTarget = {
     current = 0, -- current window
-    popup = 1, -- popup window
-    split = 2, -- split window
-    vsplit = 3, -- vsplit window
-    tabnew = 4, -- new tab
+    popup = 1,   -- popup window
+    split = 2,   -- split window
+    vsplit = 3,  -- vsplit window
+    tabnew = 4,  -- new tab
 }
 
 ---@param params table | string # table with args or string args
