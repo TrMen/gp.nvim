@@ -1620,10 +1620,6 @@ M.open_buf = function(file_name, target, kind, toggle)
         end
     end
 
-    if target == M.BufTarget.popup then
-        _H.set_keymap({ buf }, "n", "<esc>", close)
-    end
-
     M._toggle_add(kind, { win = win, buf = buf, close = close })
 
     return buf
@@ -2214,7 +2210,7 @@ M.cmd.ChatFinder = function()
 
     refresh_picker()
     vim.api.nvim_set_current_win(command_win)
-    vim.api.nvim_command("startinsert!")
+    -- vim.api.nvim_command("startinsert!")
 
     -- resize on VimResized
     _H.autocmd({ "VimResized" }, nil, resize, gid)
