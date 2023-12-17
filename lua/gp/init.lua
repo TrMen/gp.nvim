@@ -1626,7 +1626,7 @@ M.open_buf = function(file_name, target, kind, toggle)
         _H.set_keymap({ buf }, "n", "<esc>", close)
     end
 
-    -- M._toggle_add(kind, { win = win, buf = buf, close = close })
+    M._toggle_add(kind, { win = win, buf = buf, close = close })
 
     return buf
 end
