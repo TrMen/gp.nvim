@@ -2209,7 +2209,7 @@ M.cmd.ChatFinder = function()
     end
 
     refresh_picker()
-    vim.api.nvim_set_current_win(command_win)
+    vim.api.nvim_set_current_win(picker_win)
     -- vim.api.nvim_command("startinsert!")
 
     -- resize on VimResized
