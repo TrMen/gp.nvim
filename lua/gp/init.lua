@@ -1548,10 +1548,9 @@ M.open_buf = function(file_name, target, kind, toggle)
                 local wh = h - (top + bottom)
                 return ww, wh, top, (w - ww) / 2
             end,
-            { on_leave = false, escape = false, persist = true, keep_buf = true },
+            { on_leave = false, escape = true, persist = true, keep_buf = true },
             { border = M.config.style_popup_border or "single" }
         )
-
 
         if not toggle then
             M._toggle_add(M._toggle_kind.popup, { win = win, buf = buf, close = close })
@@ -1619,11 +1618,6 @@ M.open_buf = function(file_name, target, kind, toggle)
                 vim.api.nvim_command("tabclose")
             end
         end
-    end
-
-
-    if target == M.BufTarget.popup then
-        _H.set_keymap({ buf }, "n", "<esc>", close)
     end
 
     M._toggle_add(kind, { win = win, buf = buf, close = close })
