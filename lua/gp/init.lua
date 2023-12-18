@@ -1935,7 +1935,6 @@ M.chat_respond = function(params)
         { "", agent_prefix .. agent_suffix, "" }
     )
 
-<<<<<<< HEAD
 	-- call the model and write response
 	M.query(
 		buf,
