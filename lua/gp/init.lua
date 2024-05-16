@@ -1560,6 +1560,8 @@ M.open_buf = function(file_name, target, kind, toggle)
             -- read file into buffer and force write it
             vim.api.nvim_command("silent 0read " .. file_name)
             vim.api.nvim_command("silent file " .. file_name)
+            -- set the filetype to markdown
+            vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
         else
             -- move cursor to the beginning of the file and scroll to the end
             M._H.feedkeys("ggG", "x")
@@ -1935,16 +1937,16 @@ M.chat_respond = function(params)
         { "", agent_prefix .. agent_suffix, "" }
     )
 
-	-- call the model and write response
-	M.query(
-		buf,
-		M.prepare_payload(messages, headers.model, agent.model),
-		M.create_handler(buf, win, M._H.last_content_line(buf), true, "", not M.config.chat_free_cursor),
-		vim.schedule_wrap(function(qid)
-			local qt = M.get_query(qid)
-			if not qt then
-				return
-			end
+    -- call the model and write response
+    M.query(
+        buf,
+        M.prepare_payload(messages, headers.model, agent.model),
+        M.create_handler(buf, win, M._H.last_content_line(buf), true, "", not M.config.chat_free_cursor),
+        vim.schedule_wrap(function(qid)
+            local qt = M.get_query(qid)
+            if not qt then
+                return
+            end
             -- write user prompt
             last_content_line = M._H.last_content_line(buf)
             M._H.undojoin(buf)
